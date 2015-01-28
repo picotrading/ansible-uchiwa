@@ -1,0 +1,22 @@
+---
+
+- name: Test if distribution is RedHat
+  assert:
+    that: ansible_os_family == "RedHat" and
+          ansible_distribution_major_version | int >= 6
+
+- name: Yum install Uchiwa dashboard 
+  yum:
+    name: uchiwa
+    state: present
+
+- name: Copy Uchiwa configuration file over
+  template:
+    src: uchiwa.json.j2
+    dest: "{{ sensu_config_dir }}/uchiwa.json"
+
+- name: start_uchiwa
+  service:
+    name: uchiwa
+    enabled: yes
+    state: started

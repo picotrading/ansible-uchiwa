@@ -1,0 +1,21 @@
+{
+    "sensu": [
+        {
+            "name": "{{ sensu_site }}",
+            "host": "{{ sensu_host }}",
+            "ssl": {{ ssl_enabled }},
+            "port": {{ sensu_port }},
+            "user": "{{ sensu_user }}",
+            "pass": "{{ sensu_pass }}",
+            "path": "{{ sensu_path }}",
+            "timeout": {{ sensu_timeout }}
+        }
+    ],
+    "uchiwa": {
+        "user": "{{ uchiwa_user }}",
+        "pass": "{{ uchiwa_pass }}",
+        "port": {{ uchiwa_port }},
+        "stats": {{ uchiwa_stats }},
+        "refresh": {{ uchiwa_refresh }}
+    }
+}

@@ -18,5 +18,4 @@ uchiwa_host: 0.0.0.0
 uchiwa_port: 3000
 uchiwa_user: "admin"
 uchiwa_pass: "admin"
-uchiwa_stats: 10
 uchiwa_refresh: 10000

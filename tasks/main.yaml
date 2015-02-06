@@ -8,12 +8,14 @@
 - name: Yum install Uchiwa dashboard 
   yum:
     name: uchiwa
-    state: present
+    state: latest
 
 - name: Copy Uchiwa configuration file over
   template:
     src: uchiwa.json.j2
     dest: "{{ sensu_config_dir }}/uchiwa.json"
+  notify:
+    - restart_uchiwa
 
 - name: start_uchiwa
   service:

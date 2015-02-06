@@ -1,4 +1,6 @@
 ---
+# Repo
+uchiwa_repo: http://repos.sensuapp.org/yum/el/$releasever/$basearch/
 
 # Sensu paths
 sensu_config_dir: /etc/sensu
@@ -14,7 +16,7 @@ sensu_path: ""
 sensu_timeout: 5000
 
 # Uchiwa default config
-uchiwa_host: 0.0.0.0
+uchiwa_host: "0.0.0.0"
 uchiwa_port: 3000
 uchiwa_user: "admin"
 uchiwa_pass: "admin"

@@ -11,5 +11,10 @@ galaxy_info:
        - 6
   categories:
     - Monitoring, Messaging
-dependencies: []
-
+dependencies:
+  - role: yumrepo
+    yumrepo_repos:
+      uchiwa:
+        name: uchiwa
+        baseurl: "{{ uchiwa_repo }}"
+        gpgcheck: 0

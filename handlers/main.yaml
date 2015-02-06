@@ -1,0 +1,8 @@
+---
+- name: restart_uchiwa
+  service:
+    name: uchiwa
+    state: restarted
+    enabled: yes
+
+

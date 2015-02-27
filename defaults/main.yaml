@@ -1,23 +1,45 @@
 ---
-# Repo
-uchiwa_repo: http://repos.sensuapp.org/yum/el/$releasever/$basearch/
 
-# Sensu paths
-sensu_config_dir: /etc/sensu
+# YUM repo URL
+uchiwa_yum_repo_url: http://repos.sensuapp.org/yum/el/$releasever/$basearch/
 
-# Uchiwa default config for Sensu
-sensu_site: "Sensu"
-sensu_host: "127.0.0.1"
-ssl_enabled: "false"
-sensu_port: 4567
-sensu_user: ""
-sensu_pass: ""
-sensu_path: ""
-sensu_timeout: 5000
+# Package to be installed (you can force a specific version here)
+uchiwa_pkg: uchiwa
 
-# Uchiwa default config
-uchiwa_host: "0.0.0.0"
+# Default Sensu config variables
+uchiwa_sensu_site: Sensu
+uchiwa_sensu_host: 127.0.0.1
+uchiwa_sensu_ssl_enabled: "false"
+uchiwa_sensu_port: 4567
+uchiwa_sensu_user: ""
+uchiwa_sensu_pass: ""
+uchiwa_sensu_path: ""
+uchiwa_sensu_timeout: 5000
+
+# Default Sensu config
+uchiwa_sensu:
+  - name: "{{ uchiwa_sensu_site }}"
+    host: "{{ uchiwa_sensu_host }}"
+    ssl: "{{ uchiwa_sensu_ssl_enabled }}"
+    port: "{{ uchiwa_sensu_port }}"
+    user: "{{ uchiwa_sensu_user }}"
+    pass: "{{ uchiwa_sensu_pass }}"
+    path: "{{ uchiwa_sensu_path }}"
+    timeout: "{{ uchiwa_sensu_timeout }}"
+
+# Default Uchiwa config variables
+uchiwa_host: 0.0.0.0
 uchiwa_port: 3000
-uchiwa_user: "admin"
-uchiwa_pass: "admin"
+uchiwa_user: admin
+uchiwa_pass: admin
 uchiwa_refresh: 10000
+
+# Default Uchiwa config
+uchiwa_config:
+  sensu: "{{ uchiwa_sensu }}"
+  uchiwa:
+    host: "{{ uchiwa_host }}"
+    user: "{{ uchiwa_user }}"
+    pass: "{{ uchiwa_pass }}"
+    port: "{{ uchiwa_port }}"
+    refresh: "{{ uchiwa_refresh }}"

@@ -1,21 +1,3 @@
-{
-    "sensu": [
-        {
-            "name": "{{ sensu_site }}",
-            "host": "{{ sensu_host }}",
-            "ssl": {{ ssl_enabled }},
-            "port": {{ sensu_port }},
-            "user": "{{ sensu_user }}",
-            "pass": "{{ sensu_pass }}",
-            "path": "{{ sensu_path }}",
-            "timeout": {{ sensu_timeout }}
-        }
-    ],
-    "uchiwa": {
-        "host": "{{ uchiwa_host }}",
-        "user": "{{ uchiwa_user }}",
-        "pass": "{{ uchiwa_pass }}",
-        "port": {{ uchiwa_port }},
-        "refresh": {{ uchiwa_refresh }}
-    }
-}
+{% from "templates/encoder/macros/json_encode_macro.j2" import json_encode with context -%}
+
+{{ json_encode(uchiwa_config, convert_nums=true) }}

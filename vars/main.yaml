@@ -1,8 +1,2 @@
 ---
 
-# YUM repo for Uchiwa
-yumrepo_repos:
-  uchiwa:
-    name: uchiwa
-    baseurl: "{{ uchiwa_yum_repo_url }}"
-    gpgcheck: 0

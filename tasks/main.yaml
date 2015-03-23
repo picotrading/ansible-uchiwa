@@ -10,14 +10,17 @@
   yum:
     name: "{{ uchiwa_pkg }}"
     state: installed
+  notify:
+    - Restart uchiwa
   tags:
     - uchiwa_pkg
 
 - name: Configure Uchiwa
   template:
     src: uchiwa.json.j2
-    dest: "/etc/sensu/uchiwa.json"
-  notify: Restart uchiwa
+    dest: /etc/sensu/uchiwa.json
+  notify:
+    - Restart uchiwa
   tags:
     - uchiwa_config
 

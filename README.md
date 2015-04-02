@@ -70,6 +70,9 @@ uchiwa_yum_repo_url: http://repos.sensuapp.org/yum/el/$releasever/$basearch/
 # Package to be installed (you can force a specific version here)
 uchiwa_pkg: uchiwa
 
+# Allow uchiwa to bind to TCP port <1024
+uchiwa_allow_low_port: false
+
 # Default Sensu config variables
 uchiwa_sensu_site: Sensu
 uchiwa_sensu_host: 127.0.0.1

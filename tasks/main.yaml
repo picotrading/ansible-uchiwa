@@ -24,6 +24,24 @@
   tags:
     - uchiwa_config
 
+- name: Check if the binary can bind to TCP port <1024
+  shell: getcap /opt/uchiwa/bin/uchiwa | grep cap_net_bind_service
+  register: uchiwa_bind_cap
+  failed_when: False
+  changed_when: False
+  when: uchiwa_allow_low_port
+  tags:
+    - uchiwa_config
+
+- name: Set capability on the binary file to be able to bind to TCP port <1024
+  shell:
+    setcap 'cap_net_bind_service=+ep' /opt/uchiwa/bin/uchiwa
+  when: uchiwa_allow_low_port and uchiwa_bind_cap.rc > 0
+  notify:
+    - Restart uchiwa
+  tags:
+    - uchiwa_config
+
 - name: Make sure uchiva service is enabled and started
   service:
     name: uchiwa

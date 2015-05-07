@@ -18,4 +18,3 @@ dependencies:
         name: uchiwa
         baseurl: "{{ uchiwa_yum_repo_url }}"
         gpgcheck: 0
-  - common/uchiwa

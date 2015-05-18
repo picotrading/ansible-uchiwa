@@ -9,7 +9,7 @@
 - name: Install Uchiwa
   yum:
     name: "{{ uchiwa_pkg }}"
-    state: installed
+    state: present
   notify:
     - Restart uchiwa
   tags:
